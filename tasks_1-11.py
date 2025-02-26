@@ -943,3 +943,5 @@ print(person)
 del person["details"]["location"]["street"]
 print(person)
 """
+
+#test laptop
