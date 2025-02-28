@@ -28,4 +28,17 @@ print(min(list_num))
 print(sum(list_num))
 """
 
+"""
+numbs = [1, 2, 3, 4, 5]
+squares = list(map(lambda x: pow(x, 2), numbs))
+print(squares)
+"""
+
+"""
+strings = ['better', 'call', 'saul']
+sorted_strings = sorted(strings, key=lambda x: len(x))
+print(sorted_strings)
+"""
+
+
 
