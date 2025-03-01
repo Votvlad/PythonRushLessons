@@ -40,5 +40,39 @@ sorted_strings = sorted(strings, key=lambda x: len(x))
 print(sorted_strings)
 """
 
+"""
+def make_counter():
+    count = 0
+    count2 = 5
+    def counter():
+        nonlocal count
+        count += 1
+        return count
+    def counter2():
+        nonlocal count2
+        count2 += 2
+        return count2
+    return counter, counter2
 
+counter1, counter2 = make_counter()
 
+print(counter1())
+print(counter1())
+print(counter2())
+print(counter2())
+"""
+
+"""
+def make_filter(threshold):
+    def filter_func(value):
+        return value > threshold
+    return filter_func
+   
+filter_above_10 = make_filter(10)
+filter_above_15 = make_filter(15)
+data = [5, 10, 15, 20]
+filtered_data = list(filter(filter_above_10, data))
+filtered_data2 = list(filter(filter_above_15, data))
+print(filtered_data)
+print(filtered_data2)
+"""
