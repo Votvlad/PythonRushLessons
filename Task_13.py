@@ -89,8 +89,48 @@ for _ in range(10):
     print(next(fib))
 """
 
+
 """
 square_num = (pow(x, 2) for x in range(1, 11))
 for value in square_num:
     print(value)
 """
+
+#ДЕКОРАТОРЫ
+
+"""
+def log_decorator(func):
+    def wrapper():
+        print("Сообщение до выполнения функции")
+        func()
+        print("Сообщение после выполнения функции")
+    return wrapper
+
+@log_decorator
+def greet():
+    print('Hello, friend!')
+
+greet()
+"""
+
+"""
+def repeat(num_times):
+    def decorator_repeat(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(num_times):
+                func(*args, **kwargs)
+
+        return wrapper
+
+    return decorator_repeat
+
+
+@repeat(3)
+def say_hello(name):
+    print(f'Hello, {name}!')
+
+
+say_hello('Kim')
+"""
+
+
