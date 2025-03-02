@@ -76,3 +76,21 @@ filtered_data2 = list(filter(filter_above_15, data))
 print(filtered_data)
 print(filtered_data2)
 """
+
+"""
+def fibonacci():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+fib = fibonacci()
+for _ in range(10):
+    print(next(fib))
+"""
+
+"""
+square_num = (pow(x, 2) for x in range(1, 11))
+for value in square_num:
+    print(value)
+"""
