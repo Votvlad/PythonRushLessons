@@ -180,3 +180,20 @@ print(f"Результат вычисления: {result}")
 """
 
 
+#Продвинутая работа с параметрами функций
+"""
+def sum_numbers(*args):
+    return sum(args)
+print(sum_numbers(1, 2, 3)) 
+# numbers = [1, 2, 3, 4, 5]
+# print(sum_numbers(*numbers))
+"""
+
+"""
+def print_person_info(**kwargs):
+    for key, kwarg in kwargs.items():
+        print(f"{key} : {kwarg}")
+print_person_info(name = "Saul", age = "47", city = "Albuquerque")
+"""
+
+
