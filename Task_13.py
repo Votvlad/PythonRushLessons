@@ -196,4 +196,30 @@ def print_person_info(**kwargs):
 print_person_info(name = "Saul", age = "47", city = "Albuquerque")
 """
 
+# Встроенные библиотеки
+
+"""
+import os
+os.mkdir('test_directory')
+os.chdir('test_directory')
+with open("test_file.txt", "w") as f:
+    f.write("Hello, World!")
+with open("test_file.txt", "r") as f:
+    content = f.read()
+    print(content)
+os.chdir("..")
+os.remove("test_directory/test_file.txt")
+os.rmdir("test_directory")
+"""
+
+"""
+import platform
+
+print("Operating System:", platform.system())
+print("Node Name:", platform.node())
+print("OS Version:", platform.version())
+print("Architecture:", platform.architecture())
+print("Python Version:", platform.python_version())
+"""
+
 
