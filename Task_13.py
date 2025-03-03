@@ -222,4 +222,28 @@ print("Architecture:", platform.architecture())
 print("Python Version:", platform.python_version())
 """
 
+# Библиотека datetime
+"""
+import datetime
+#from datetime import date
+year = int(input('Год рождения: '))
+month = int(input('Месяц рождения: '))
+day = int(input('День рождения: '))
 
+birthday = datetime.date(year, month, day)
+
+today = datetime.date.today()
+
+days_since_birth = today - birthday
+print(days_since_birth.days)
+"""
+
+"""
+import datetime
+utc_dt = datetime.datetime(2025, 3, 3, 3, 29,00, tzinfo=datetime.timezone.utc)
+difference = int(input("Введите разницу в часах: "))
+wellington_tz = datetime.timezone(datetime.timedelta(hours = difference))
+wellington_dt = utc_dt.astimezone(wellington_tz)
+print(utc_dt)
+print(wellington_dt)
+"""
