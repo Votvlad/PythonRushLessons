@@ -248,4 +248,40 @@ print(utc_dt)
 print(wellington_dt)
 """
 
+#Создание классов и объектов
+"""
+class Car:
+   def __init__(self, make, model, year):
+       self.make = make
+       self.model = model
+       self.year = year
+   def display_info(self):
+       print(f"Автомобиль: {self.make} {self.model}, год выпуска {self.year}")
+
+my_car = Car("Mercedes", "Maybach-S", 2025)
+my_car.display_info()
+"""
+
+"""
+class Library:
+    def __init__(self, books = None):
+        self. books = books if books is not None else []
+    #def __init__(self):
+    #self.books = []
+
+    def add_book(self, book):
+        self.books.append(book)
+
+    def display_books(self):
+        print(self.books)
+        #for book in self.books:
+        #print(book)
+
+my_book = Library()
+
+my_book.add_book("Bible")
+my_book.add_book("Alice in the Wonderland")
+my_book.display_books()
+"""
+
 
