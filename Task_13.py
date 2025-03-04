@@ -284,4 +284,45 @@ my_book.add_book("Alice in the Wonderland")
 my_book.display_books()
 """
 
+"""
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height
+
+rectangle = Rectangle(17, 22)
+
+print(rectangle.area())
+"""
+
+"""
+class BankAccount:
+    def __init__(self, account_number, initial_balance):
+        self.account_number = account_number
+        self.balance = initial_balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Сумма на счёте: {self.balance}")
+
+    def withdraw(self, amount):
+        if self.balance >= amount:
+            self.balance -= amount
+            print(f"Сумма на счёте:{self.balance}")
+        else:
+            print("На счёте не достаточно средств")
+            print(f"Сумма на счёте: {self.balance}")
+
+account = BankAccount('12345', 1000)
+
+account.deposit(500)
+account.withdraw(2000)
+"""
+
+
+
+
 
