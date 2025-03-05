@@ -242,10 +242,24 @@ print(days_since_birth.days)
 import datetime
 utc_dt = datetime.datetime(2025, 3, 3, 3, 29,00, tzinfo=datetime.timezone.utc)
 difference = int(input("Введите разницу в часах: "))
-wellington_tz = datetime.timezone(datetime.timedelta(hours = difference))
-wellington_dt = utc_dt.astimezone(wellington_tz)
+user_tz = datetime.timezone(datetime.timedelta(hours = difference))
+user_dt = utc_dt.astimezone(user_tz)
 print(utc_dt)
-print(wellington_dt)
+print(user_dt)
+"""
+
+# Создание классов и объектов
+"""
+class Car:
+   def __init__(self, make, model, year):
+       self.make = make
+       self.model = model
+       self.year = year
+   def display_info(self):
+       print(f"Автомобиль: {self.make} {self.model}, год выпуска {self.year}")
+
+my_car = Car("Mercedes", "Maybach-S", 2025)
+my_car.display_info()
 """
 
 #Создание классов и объектов
@@ -320,6 +334,55 @@ account = BankAccount('12345', 1000)
 
 account.deposit(500)
 account.withdraw(2000)
+"""
+
+"""
+class Car:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self._model = model
+
+    def get_model(self):
+        return self._model
+
+    def set_model(self, new_model):
+        self._model = new_model
+
+car = Car('Toyota', 'Corolla')
+
+print(car.get_model())
+car.set_model("Camry")
+print(car.get_model())
+print(car.brand)
+car.brand = 'Mercedes'
+print(car.brand)
+"""
+
+"""
+class Library:
+    def __init__(self):
+        self.books = []
+
+    def add_book(self, book):
+        self.books.append(book)
+
+    def __str__(self):
+        return str(self.books)
+
+    def __len__(self):
+        return len(self.books)
+
+# Создаем объект библиотеки
+library = Library()
+
+# Добавляем книги в библиотеку
+library.add_book("Harry Potter and the Philosopher's Stone")
+library.add_book("The Great Gatsby")
+library.add_book("1984")
+
+# Выводим информацию о библиотеке с перечнем книг и количество книг
+print(library)
+print(f"Number of books in library: {len(library)}")
 """
 
 
