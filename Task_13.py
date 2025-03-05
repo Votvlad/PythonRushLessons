@@ -385,7 +385,64 @@ print(library)
 print(f"Number of books in library: {len(library)}")
 """
 
+# Наследование
+"""
+class Vehicle:
+    def __init__(self, brand):
+        self.brand = brand
+
+class Car(Vehicle):
+    def __init__(self, brand, model):
+        super().__init__(brand)
+        self.model = model
+
+    def drive(self):
+        return f"{self.brand} {self.model} is driving."
+
+class Motorcycle(Vehicle):
+    def __init__(self, brand, model):
+        super().__init__(brand)
+        self.model = model
+
+    def ride(self):
+        return f"{self.brand} {self.model} is riding."
+
+# Примеры использования классов:
+car = Car("Toyota", "Corolla")
+print(car.drive())  # Output: Toyota Corolla is driving.
+
+motorcycle = Motorcycle("Yamaha", "R1")
+print(motorcycle.ride())  # Output: Yamaha R1 is riding.
+"""
+
+"""
+import math
+
+class Shape:
+    def area(self):
+        pass
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return  self.length * self.width
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * pow(self.radius, 2)
 
 
+# Пример использования
+rect = Rectangle(3, 4)
+print(f"Area of rectangle: {rect.area()}")
+
+circle = Circle(5)
+print(f"Area of circle: {circle.area():.2f}")
+"""
 
 
