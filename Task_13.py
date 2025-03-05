@@ -446,3 +446,34 @@ print(f"Area of circle: {circle.area():.2f}")
 """
 
 
+
+"""
+class Vehicle:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+class Car(Vehicle):
+    def __init__(self, brand, model, fuel_type):
+        super().__init__(brand, model)
+        self.fuel_type = fuel_type
+
+car = Car("Lada", "Sedan", 95)
+print(f"Brand: {car.brand}, Model: {car.model}, Fuel Type: {car.fuel_type}")
+"""
+
+
+"""
+class Animal:
+    def speak(self):
+        return "Ррррр!"
+
+
+class Dog(Animal):
+    def speak(self):
+        parent_bark = super().speak()
+        return f"{parent_bark} Гав!"
+
+dog = Dog()
+print(dog.speak())
+"""
