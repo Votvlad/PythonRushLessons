@@ -582,3 +582,50 @@ class Bicycle(Vehicle):
 print(check_subclass(Vehicle, Car))
 print(check_subclass(Bicycle, Vehicle))
 """
+
+# Множественное наследование
+
+"""
+class Base1:
+    def describe(self):
+        print('Метод Base1')
+
+
+class Base2:
+    def describe(self):
+        # super().describe()
+        print('Метод Base2')
+
+
+class Combined(Base1, Base2):
+    def describe(self):
+        super().describe()
+        Base2.describe(self)
+        print('Метод Combined')
+
+
+comb = Combined()
+comb.describe()
+"""
+
+
+"""
+class BaseA:
+    def action(self):
+        print("Питонь!")
+        super().action()
+
+class BaseB:
+    def action(self):
+        print("Кому говорю?!")
+        #super().action()
+
+class Derived(BaseA, BaseB):
+    def action(self):
+        print(f"Сильно питонь!!")
+        super().action()
+
+d = Derived()
+d.action()
+"""
+
