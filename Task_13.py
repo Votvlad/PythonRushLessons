@@ -445,7 +445,7 @@ circle = Circle(5)
 print(f"Area of circle: {circle.area():.2f}")
 """
 
-
+# Инициализация иерархии
 
 """
 class Vehicle:
@@ -477,3 +477,64 @@ class Dog(Animal):
 dog = Dog()
 print(dog.speak())
 """
+
+# Полиморфизм
+
+"""
+import math
+
+class Shape:
+    def area(self):
+        raise NotImplementedError("Subclasses should implement this method!")
+
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * pow(self.radius, 2)
+
+
+
+shapes = [Circle(5), Rectangle(4, 6), Circle(3)]
+areas = [shape.area() for shape in shapes]
+
+for area in areas:
+    print(f"{area:.2f}")
+"""
+
+"""
+class Animal:
+    def make_sound(self):
+        return "Ууууууу!"
+
+class Dog(Animal):
+    def make_sound(self):
+        parent_bark = super().make_sound()
+        return f"{parent_bark} Гав-гав!"
+
+class Cat(Animal):
+    def make_sound(self):
+        parent_bark = super().make_sound()
+        return f"{parent_bark} Мяу-мяу!"
+
+# Примеры использования:
+
+dog = Dog()
+cat = Cat()
+
+print(dog.make_sound())  # Ууууууу! Гав-гав!
+print(cat.make_sound())  # Ууууууу! Мяу-мяу!
+"""
+
+
