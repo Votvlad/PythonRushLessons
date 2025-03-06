@@ -629,3 +629,51 @@ d = Derived()
 d.action()
 """
 
+# Method Resolution Order
+
+"""
+class A:
+    def method(self):
+        print("A")
+
+class B(A):
+    def method(self):
+        print("B")
+        super().method()
+
+class C(A):
+    def method(self):
+        print("C")
+        super().method()
+
+class D(B, C):
+    def method(self):
+        print("D")
+        super().method()
+
+
+d = D()
+d.method()
+"""
+
+"""
+class M:
+    def action(self):
+        print("This is a class M")
+
+
+class N(M):
+    def action(self):
+        print("This is a class N")
+        super().action()
+
+
+class O(M):
+    def action(self):
+        print("This is a class O")
+        super().action()
+
+
+n = N()
+n.action()
+"""
