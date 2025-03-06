@@ -535,6 +535,50 @@ cat = Cat()
 
 print(dog.make_sound())  # Ууууууу! Гав-гав!
 print(cat.make_sound())  # Ууууууу! Мяу-мяу!
+
+#animals = [dog, cat]
+#for animal in animals:
+    #print(animal.make_sound())
 """
 
+# Проверка типов
 
+"""
+class Animal:
+    pass
+
+class Dog(Animal):
+    pass
+
+class Cat(Animal):
+    pass
+
+def check_type(obj):
+    return isinstance(obj, Animal)
+
+dog = Dog()
+cat = Cat()
+not_animal = "Not an animal"
+
+print(check_type(dog))  # True
+print(check_type(cat))  # True
+print(check_type(not_animal))  # False
+"""
+
+"""
+def check_subclass(class_name1, class_name2):
+    return issubclass(class_name1, class_name2)
+
+class Vehicle:
+    pass
+
+class Car(Vehicle):
+    pass
+
+class Bicycle(Vehicle):
+    pass
+
+
+print(check_subclass(Vehicle, Car))
+print(check_subclass(Bicycle, Vehicle))
+"""
