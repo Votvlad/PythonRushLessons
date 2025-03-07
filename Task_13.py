@@ -705,3 +705,24 @@ print(square('5'))
 
 #cause_type_error()
 """
+
+# Популярные исключения
+
+"""
+#Напиши программу, которая создает исключение IndentationError
+def error_func():
+return "Hello!"
+
+error_func()
+"""
+
+
+"""
+# Напиши программу, которая создает исключение SyntaxError
+raise SyntaxError("Это синтаксическая ошибка")
+"""
+
+
+
+
+
