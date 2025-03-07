@@ -677,3 +677,31 @@ class O(M):
 n = N()
 n.action()
 """
+
+
+# Ошибки во время работы программы
+
+"""
+def division(a, b):
+    if b == 0:
+        raise ZeroDivisionError('деление на ноль')
+    return a / b
+
+print(division(6, 3))
+print(division(5, 0))
+"""
+
+"""
+def square(number):
+    try:
+        return pow(number, 2)
+    except TypeError:
+        return "Ошибка: несовместимые типы данных"
+
+print(square('5'))
+
+#def cause_type_error():
+    #result = "string" + 5
+
+#cause_type_error()
+"""
