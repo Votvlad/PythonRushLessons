@@ -722,7 +722,31 @@ error_func()
 raise SyntaxError("Это синтаксическая ошибка")
 """
 
+# Обработка исключений
 
+"""
+def safe_division(a, b):
+    try:
+        result = a / b
+    except ZeroDivisionError:
+        return "Ошибка: деление на ноль."
+    except TypeError:
+        return "Некорректный ввод данных"
+    return result
+
+print(safe_division('6', 3))
+"""
+
+"""
+def convert_and_sum(a, b):
+    try:
+        result = int(a) + int(b)
+    except ValueError:
+        return "Ошибка: невозможно преобразовать аргумент в число."
+    return result
+
+print(convert_and_sum('a', '10'))
+"""
 
 
 
