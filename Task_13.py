@@ -15,6 +15,7 @@ print(dir(string))
 print(dir(number))
 print(dir(my_tuple))
 """
+from logging import exception
 
 """
 list_1 = [1, 2, 3]
@@ -506,6 +507,9 @@ class Circle(Shape):
 
 
 
+
+
+
 shapes = [Circle(5), Rectangle(4, 6), Circle(3)]
 areas = [shape.area() for shape in shapes]
 
@@ -748,5 +752,54 @@ def convert_and_sum(a, b):
 print(convert_and_sum('a', '10'))
 """
 
+# Обработка нескольких исключений
+
+
+"""
+def process_input(string):
+    try:
+        if not string:
+            raise IndexError("Введена пустая строка.")
+        num = int(string)
+        return num ** 2
+    except ValueError:
+        return "Ошибка: введенная строка не является числом."
+    except IndexError:
+        return "Ошибка: введена пустая строка."
+
+# Примеры вызова функции
+print(process_input("5"))         # Вывод: 25
+print(process_input("abc"))       # Вывод: Ошибка: введенная строка не является числом.
+print(process_input(""))          # Вывод: Ошибка: введена пустая строка.
+"""
+
+"""
+def read_integer(string):
+    try:
+        num = int(string)
+    except ValueError as e:
+        print(f"Тип ошибки: {type(e)}")
+        print(f"Аргументы ошибки: {e.args}")
+        return e
+
+exception = read_integer("hola")
+print(exception)
+"""
+
+
+"""
+# вариант решения предыдущей задачи ментором
+def read_integer(input_string):
+    exception_instance = None
+    try:
+        return int(input_string)
+    except ValueError as e:
+        exception_instance = e
+        print(f"Error arguments: {e.args}")
+        print(f"Error type: {type(e)}")
+    print(f"Exception instance: {exception_instance}")
+
+read_integer("abc")
+"""
 
 
