@@ -510,6 +510,18 @@ class Circle(Shape):
 
 
 
+def process_input(string):
+    try:
+        result = int(string)
+        if int(result):
+            print(result ** 2)
+    except (ValueError, IndexError) as e:
+         print(f"Произошла ошибка: {e}")
+
+# Примеры вызова функции
+print(process_input("5"))         # Вывод: 25
+print(process_input("abc"))       # Вывод: Ошибка: введенная строка не является числом.
+print(process_input(""))
 shapes = [Circle(5), Rectangle(4, 6), Circle(3)]
 areas = [shape.area() for shape in shapes]
 
@@ -800,6 +812,42 @@ def read_integer(input_string):
     print(f"Exception instance: {exception_instance}")
 
 read_integer("abc")
+"""
+
+# Стек-трейс
+
+"""
+import traceback
+
+def divide_numbers(a, b):
+    try:
+        return a/ b
+    except ZeroDivisionError as e:
+        print("Произошло исключение:")
+        traceback.print_exc()
+
+divide_numbers(1, 0)
+"""
+
+"""
+import traceback
+
+def complex_operation():
+    def inner_function_1():
+        def inner_function_2():
+            def inner_function_3():
+                # Здесь генерируем исключение
+                raise ValueError("An error occurred")
+            inner_function_3()
+        inner_function_2()
+    try:
+        inner_function_1()
+    except Exception as e:
+        tb = traceback.extract_tb(e.__traceback__)
+        for frame in tb:
+            print(f"File: {frame.filename}, Line: {frame.lineno}, Function: {frame.name}, Code: {frame.line}")
+
+complex_operation()
 """
 
 
