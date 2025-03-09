@@ -850,4 +850,45 @@ def complex_operation():
 complex_operation()
 """
 
+# Запуск исключения
 
+""" 
+def check_positive(num):
+    if num <= 0:
+        raise ValueError("Number must be positive")
+    print(num)
+try:
+    check_positive(-3)
+except ValueError as e:
+    print('Ошибка: число отрицательное, либо равно нулю.')
+"""
+
+"""
+class InputValidationError(Exception):
+    def __init__(self, message, original_exception=None):
+        super().__init__(message)  # Инициализируем родительский класс
+        self.original_exception = original_exception  # Сохраняем исходное исключение
+
+# 2. Функция validate_input
+def validate_input(string):
+    try:
+        # Проверка на пустую строку
+        if string == "":
+            raise ValueError("Input cannot be empty")
+        # Проверка на длину строки
+        if len(string) > 10:
+            raise ValueError("Input is too long")
+        # Если проверки пройдены, возвращаем строку
+        return string
+    except ValueError as e:
+        # Переупаковываем ValueError в InputValidationError
+        raise InputValidationError("Validation failed", original_exception=e) from e
+
+# 3. Пример использования
+try:
+    result = validate_input("")  # Вызов функции с пустой строкой
+    print(f"Validation successful: {result}")
+except InputValidationError as e:
+    print(f"Caught custom exception: {e}")
+    print(f"Original exception: {e.original_exception}")
+"""
