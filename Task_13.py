@@ -892,3 +892,50 @@ except InputValidationError as e:
     print(f"Caught custom exception: {e}")
     print(f"Original exception: {e.original_exception}")
 """
+
+# Создание своего исключения
+
+"""
+class InvalidAgeError(Exception):
+    pass
+
+def check_age(age):
+    if age < 0 or age > 150:
+        raise InvalidAgeError(f"Invalid age: {age}")
+
+try:
+    age = int(input("Enter your age: "))
+    check_age(age)
+    print("Age is valid.")
+except InvalidAgeError as e:
+    print(e)
+except ValueError:
+    print("Please enter a valid integer for age.")
+"""
+
+"""
+class ApplicationError(Exception):
+    pass
+
+class NegativeValueError(ApplicationError):
+    pass
+
+class ValueTooLargeError(ApplicationError):
+     pass
+
+def check_number(num) :
+    if num < 0:
+        raise NegativeValueError("Введено отрицательное число",  num)
+    if num > 100:
+        raise ValueTooLargeError("Значение превышает максимум", num)
+
+try:
+    check_number(101)
+except NegativeValueError as e:
+    print("Введено отрицательное число")
+
+except ValueTooLargeError as e:
+    print("Значение превышает максимум")
+"""
+
+
