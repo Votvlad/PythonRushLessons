@@ -938,4 +938,29 @@ except ValueTooLargeError as e:
     print("Значение превышает максимум")
 """
 
+# Импорт модулей
 
+"""
+#with open ("geometry.py", "w") as geometry:
+    # geometry.write(import math
+
+#def circle_area(radius):
+    #return math.pi * pow(radius, 2)
+
+#def rectangle_area(length, width):
+    #return length * width)
+
+#with open ("import_geometry.py", "w") as import_geometry:
+    #import_geometry.write(from geometry import circle_area
+#print(f"Площадь круга: {circle_area(5):.2f}")
+"""
+
+
+"""
+module_name = input("Введите название модуля: ")
+func_name = input("Введите название функции: ")
+
+module = __import__(module_name)
+import_result = getattr(module, func_name)
+print(f"{import_result(100):.1f}")
+"""
