@@ -964,3 +964,47 @@ module = __import__(module_name)
 import_result = getattr(module, func_name)
 print(f"{import_result(100):.1f}")
 """
+
+#Создание своего пакета
+
+
+#import os
+
+#os.makedirs("mypackage", exist_ok=True)
+
+#with open("mypackage/module1.py", "w") as f:
+    #f.write("""import math
+    #def circle_area(radius):
+        #return math.pi * pow(radius, 2)
+    #""")
+
+#with open("mypackage/module2.py", "w") as f:
+    #f.write("""import math
+    #def rectangle_area(length, width):
+        #return length * width
+#""")
+
+#with open("test.py", "w") as f:
+    #f.write("""from mypackage import module1, module2
+
+#print(f"{module1.circle_area(4):.1f}")
+#print(module2.rectangle_area(5, 7))
+#""")
+
+
+"""
+#with open("mymodule.py", "w") as f:
+    #f.write(#import math      # запись кода в файл должна быть в тройных кавычках
+    #def circle_area(radius):
+        #return math.pi * pow(radius, 2)
+    #radius = 5)
+
+with open("task04.py", "w") as f:
+    #f.write(import mymodule
+    #print(dir(mymodule)))
+"""
+
+
+
+
+
