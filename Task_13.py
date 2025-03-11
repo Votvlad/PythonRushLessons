@@ -1008,3 +1008,6 @@ with open("task04.py", "w") as f:
 
 
 
+
+
+
