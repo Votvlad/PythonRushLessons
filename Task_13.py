@@ -1034,7 +1034,25 @@ conda deactivate
 """
 
 
+# Установка пакетов
+
+"""
+import requests
+response = requests.get("https://jsonplaceholder.typicode.com")
+print(response)
+"""
 
 
+"""
+# Установка пакета cowsay
+#pip install cowsay
+
+# Использование пакета cowsay для отображения сообщения
+import cowsay
+cowsay.cow("Нужно было учить Python...")
+
+# Удаление пакета cowsay
+#pip uninstall -y cowsay
+"""
 
 
