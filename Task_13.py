@@ -1005,6 +1005,33 @@ with open("task04.py", "w") as f:
 """
 
 
+# Пакетные менеджеры
+
+"""
+pip --version
+
+pip install requests
+
+pip install numpy==1.21.0
+
+pip install --upgrade requests
+
+pip uninstall -y requests
+
+pip list
+"""
+
+"""
+conda create --name myenv
+
+conda activate myenv
+
+conda install numpy
+
+conda list
+
+conda deactivate
+"""
 
 
 
