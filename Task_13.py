@@ -1056,3 +1056,62 @@ cowsay.cow("Нужно было учить Python...")
 """
 
 
+# Итераторы
+
+"""
+class SimpleIterator:
+    def __init__(self, start, end):
+        self.current = start
+        self.end = end
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current >= self.end:
+            raise StopIteration
+        current = self.current
+        self.current += 1
+        return current
+
+
+iterator = SimpleIterator(5, 11)
+
+for num in iterator:
+    print(num)
+"""
+
+"""
+class CollectionIterator:
+    def __init__(self, data):
+        self.data = data
+
+    def __iter__(self):
+        return MyIterator(self.data)
+
+
+class MyIterator:
+    def __init__(self, data):
+        self.data = data
+        self.index = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.index >= len(self.data):
+            raise StopIteration
+        item = self.data[self.index]
+        self.index += 1
+        return item
+
+
+iterator = CollectionIterator([1, 3, 5, 7, 9])
+
+for num in iterator:
+    print(num)
+"""
+
+
+
+
