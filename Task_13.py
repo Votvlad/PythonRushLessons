@@ -1175,6 +1175,55 @@ matrix[0, 0] = 1
 print(matrix[0, 0])  # Вывод: 1
 """
 
+# Стандартные ошибки
+
+"""
+def foo(bar=[]):
+    bar.append("baz")
+    return bar
+
+
+def foo_correct(bar=None):
+    if bar is None:
+        bar = []
+    bar.append("baz")
+    return bar
+
+
+print(foo())
+print(foo())
+print(foo())
+# Проверка исправленной функции
+print(foo_correct())  # Выводит: ['baz']
+print(foo_correct())  # Выводит: ['baz']
+print(foo_correct())  # Выводит: ['baz']
+
+# Проверка с передачей списка
+lst = [1, 2, 3]
+print(foo_correct(lst))  # Выводит: [1, 2, 3, "baz"]
+print(foo_correct(lst))  # Выводит: [1, 2, 3, "baz", "baz"]
+"""
+
+"""
+# Неправильный вариант: несколько исключений перехватываются неправильно
+try:
+    number = int(input("Введите число: "))
+    result = 10 / number
+except (ValueError, ZeroDivisionError):
+    print("Произошла ошибка: вводите только числа кроме нуля.")
+
+# Исправленный вариант:
+
+try:
+    number = int(input("Введите число: "))
+    result = 10 / number
+except (ValueError, ZeroDivisionError) as e:
+    print("Произошла ошибка: вводите только числа кроме нуля.")
+"""
+
+
+
+
 
 
 
