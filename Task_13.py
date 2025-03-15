@@ -1113,5 +1113,72 @@ for num in iterator:
 """
 
 
+# Перегрузка операторов
+
+"""
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __eq__(self, other):
+        return self.age == other.age
+
+    def __lt__(self, other):
+        return self.age < other.age
+
+p = Person("Petr", 75)
+p2 = Person("Mikhail", 35)
+print(p == p2)
+print(p > p2)
+"""
+
+"""
+class Matrix:
+    def __init__(self, rows, cols=None):
+        if cols is None:
+            # Если передан один аргумент, это готовая матрица
+            self.data = rows
+        else:
+            # Если переданы два аргумента, создаём матрицу, заполненную нулями
+            self.data = [[0 for _ in range(cols)] for _ in range(rows)]
+
+    def __getitem__(self, index):
+        if isinstance(index, tuple):
+            row, col = index
+            if row < len(self.data) and col < len(self.data[row]):
+                return self.data[row][col]
+            else:
+                raise IndexError("Индекс за пределами матрицы")
+        else:
+            if index < len(self.data):
+                return self.data[index]
+            else:
+                raise IndexError("Индекс строки за пределами матрицы")
+
+    def __setitem__(self, index, value):
+        if isinstance(index, tuple):
+            row, col = index
+            if row < len(self.data) and col < len(self.data[row]):
+                self.data[row][col] = value
+            else:
+                raise IndexError("Индекс за пределами матрицы")
+        else:
+            if index < len(self.data):
+                self.data[index] = value
+            else:
+                raise IndexError("Индекс строки за пределами матрицы")
+
+
+matrix = Matrix(3, 3)
+matrix[0, 0] = 1
+print(matrix[0, 0])  # Вывод: 1
+"""
+
+
+
+
+
+
 
 
