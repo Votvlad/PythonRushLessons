@@ -75,3 +75,18 @@ except FileNotFoundError as e:
 """
 
 
+# Работа с бинарными файлами
+
+"""
+#with open('example.bin', 'rb') as file:
+    content = file.read()
+    print(content)
+"""
+
+"""
+#with open('input_image.jpg', 'rb') as infile:
+    image_data = infile.read()
+
+#with open('output_image.jpg', 'wb') as outfile:
+    outfile.write(image_data)
+"""
