@@ -1,2 +1,3 @@
-Hello, World!
-Appended text.
+This is a new file.
+Мы добавили эту линию.
+И эту тоже.

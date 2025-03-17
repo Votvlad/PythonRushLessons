@@ -35,3 +35,22 @@ while line:
     line = file.readline()
 file.close()
 """
+
+# Запись данных в файл
+
+"""
+file = open('mypackage/example.txt', 'w')
+file.write("This is a new file.\n")
+file.close()
+"""
+
+"""
+file = open('mypackage/example.txt', 'a')
+file.write("Мы добавили эту линию.\n")
+file.write("И эту тоже.\n")
+file.close()
+"""
+
+
+
+
