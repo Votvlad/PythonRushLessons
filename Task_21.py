@@ -52,5 +52,26 @@ file.close()
 """
 
 
+# Оператор with
+
+"""
+file = None
+try:
+    file = open('example.txt', 'a')
+    file.write("Новая линия.")
+except FileNotFoundError:
+    print("Файл не найден.")
+finally:
+    if file:
+        file.close()
+"""
+
+"""
+try:
+    with open('example.txt', 'a') as file:
+        file.write("Новая линия.\n")
+except FileNotFoundError as e:
+    print(f"Caught an exception: {e}")
+"""
 
 
