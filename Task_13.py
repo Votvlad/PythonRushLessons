@@ -1244,9 +1244,52 @@ for multiplier in create_multipliers_correct():
 """
 
 
+# Стандартные ошибки, часть 3
 
+"""
+# Импортируем встроенный модуль math
+import math as std_math
 
+# Вызов функции sqrt стандартного модуля math
+print(std_math.sqrt(9))
 
+# Импортируем пользовательский модуль math
+import importlib.util
+
+# Путь к пользовательскому модулю
+# custom_math_path = './math.py'
+custom_math_path = '/home/votvlad/PythonRush/mypackage/math.py'
+
+# Загрузите пользовательский модуль math
+spec = importlib.util.spec_from_file_location("custom_math", custom_math_path)
+custom_math = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(custom_math)
+
+# Вызов функции sqrt из пользовательского модуля math
+custom_math.sqrt(9)
+"""
+
+"""
+def bar(i):
+    if i == 1:
+        raise KeyError(1)
+    if i == 2:
+        raise ValueError(2)
+
+def bad():
+    exception = None
+    try:
+        bar(1)
+    except KeyError as e:
+        exception = e
+        print('key error')
+    except ValueError as e:
+        exception = e
+        print('value error')
+    print(exception)
+
+bad()
+"""
 
 
 
