@@ -90,3 +90,25 @@ except FileNotFoundError as e:
 #with open('output_image.jpg', 'wb') as outfile:
     outfile.write(image_data)
 """
+
+
+# Работа с файлами на диске
+
+"""
+#with open('source.txt', 'r') as file:
+    source = file.read()
+
+#with open('destination.txt', 'w') as file:
+    file.write(source)
+"""
+
+"""
+import os
+
+if os.path.exists('example.txt'):
+    os.remove('example.txt')
+else:
+    print("File does not exist")
+"""
+
+
