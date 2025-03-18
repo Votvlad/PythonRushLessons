@@ -111,4 +111,34 @@ else:
     print("File does not exist")
 """
 
+# Работа с директориями
+
+"""
+import os
+import shutil
+
+os.mkdir('new_directory')
+
+os.makedirs('parent_directory/child_directory')
+
+os.rmdir('new_directory')
+
+shutil.rmtree('parent_directory')
+"""
+
+"""
+import os
+
+current_directory = os.getcwd()
+print(f"Текущая рабочая директория: {current_directory}")
+
+contents = os.listdir('.')
+print(f"Содержимое текущей директории: {contents}")
+
+with os.scandir('.') as entries:
+    for entry in entries:
+        print(f"Имя: {entry.name}, Это директория: {entry.is_dir()}, Это файл: {entry.is_file()}")
+"""
+
+
 
