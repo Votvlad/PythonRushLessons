@@ -141,4 +141,47 @@ with os.scandir('.') as entries:
 """
 
 
+# Сериализация
+
+"""
+import pickle
+
+# Объект для сериализации
+student_info = {
+    'name': 'John Doe',
+    'age': 20,
+    'status': 'student'
+}
+# Сериализация объекта
+with open('student_info.pkl', 'wb') as file:
+    pickle.dump(student_info, file)
+
+# Десериализация объекта из файла
+with open('student_info.pkl', 'rb') as file:
+    loaded_data = pickle.load(file)
+
+print(loaded_data)
+"""
+
+"""
+import yaml
+
+# Пример словаря с информацией о фильме
+film_info = {
+    'title': 'Inception',
+    'director': 'Christopher Nolan',
+    'year': 2010
+}
+
+# Сериализация объекта в строку YAML
+yaml_string = yaml.dump(film_info)
+print(yaml_string)
+
+# Десериализация объекта из строки YAML
+loaded_data = yaml.load(yaml_string, Loader=yaml.FullLoader)
+print(loaded_data)
+"""
+
+
+
 
