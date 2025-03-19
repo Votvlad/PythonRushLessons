@@ -183,5 +183,34 @@ print(loaded_data)
 """
 
 
+# Работа с pickle
+
+"""
+import pickle
+
+data = [1, 2, 3, 'a', 'b', 'c']
+
+with open('example.pkl', 'wb') as file:
+    pickle.dump(data, file)
+
+with open('example.pkl', 'rb') as file:
+    loaded_data = pickle.load(file)
+
+print(loaded_data)
+"""
 
 
+import pickle
+"""
+data = {
+    'name': 'Alice',
+    'age': 30,
+    'city': 'Wonderland'
+}
+
+serialized_data = pickle.dumps(data)
+
+loaded_data = pickle.loads(serialized_data)
+
+print(loaded_data)
+"""
