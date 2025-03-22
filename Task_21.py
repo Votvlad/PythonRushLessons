@@ -199,9 +199,9 @@ with open('example.pkl', 'rb') as file:
 print(loaded_data)
 """
 
-
-import pickle
 """
+import pickle
+
 data = {
     'name': 'Alice',
     'age': 30,
@@ -214,5 +214,88 @@ loaded_data = pickle.loads(serialized_data)
 
 print(loaded_data)
 """
+
+# Управление сериализацией
+
+"""
+import pickle
+
+class CustomClass:
+    def __init__(self, name, age, city=None):
+        self.name = name
+        self.age = age
+        self.city = city
+
+    def __reduce__(self):
+        # Возвращаем кортеж: (функция, аргументы, состояние)
+        return (self.__class__, (self.name, self.age))
+
+    def __repr__(self):
+        return f"CustomClass(name={self.name}, age={self.age}, city={self.city})"
+
+obj = CustomClass('Alice', 23, 'Wonderland')
+print("Оригинальный объект:", obj)
+
+# Сериализация объекта
+serialized_obj = pickle.dumps(obj)
+print("Сериализованный объект:", serialized_obj)
+
+# Десериализация объекта
+deserialized_obj = pickle.loads(serialized_obj)
+print("Десериализованный объект:", deserialized_obj)
+"""
+
+"""
+import pickle
+
+class NotSerializedFields:
+    def __init__(self, name, file_path, db_connection):
+        self.name = name
+        self.file = open(file_path, 'r')
+        self.connection = db_connection
+
+    def __getstate__(self):
+        # Сохраняем только сериализуемые поля
+        state = self.__dict__.copy()
+        del state['file']  # Исключаем открытый файл
+        del state['connection']  # Исключаем подключение к БД
+        return state
+
+    def __setstate__(self, state):
+        # Восстанавливаем сериализуемые поля
+        self.__dict__.update(state)
+        # Восстанавливаем несериализуемые поля
+        self.file = None  # Файл будет закрыт, нужно открыть заново
+        self.connection = None  # Подключение нужно установить заново
+
+    def close_resources(self):
+        # Метод для закрытия ресурсов
+        if self.file:
+            self.file.close()
+        if self.connection:
+            self.connection.close()
+
+    def __repr__(self):
+        return (f"NotSerializedFields(name={self.name}, "
+                f"file={'open' if self.file else 'closed'}, "
+                f"connection={'active' if self.connection else 'closed'})")
+
+
+obj = NotSerializedFields("Alice", "example.txt", "db_connection")
+print("Оригинальный объект:", obj)
+
+# Сериализация объекта
+serialized_obj = pickle.dumps(obj)
+print("Сериализованный объект:", serialized_obj)
+
+# Десериализация объекта
+deserialized_obj = pickle.loads(serialized_obj)
+print("Десериализованный объект:", deserialized_obj)
+
+# Закрываем ресурсы (если они были открыты)
+obj.close_resources()
+"""
+
+
 
 
