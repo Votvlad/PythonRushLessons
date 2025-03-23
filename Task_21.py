@@ -296,6 +296,46 @@ print("Десериализованный объект:", deserialized_obj)
 obj.close_resources()
 """
 
+# Работа с JSON посредством json
 
+"""
+import json
+from datetime import datetime
+
+class ExampleEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, datetime):
+            return obj.isoformat()
+        return super().default(obj)
+
+data = {
+    "city" : "London",
+    "time_now" : datetime.now()
+}
+
+result = json.dumps(data, cls=ExampleEncoder, indent=2)
+print(result)
+"""
+
+"""
+import json
+from datetime import datetime
+
+
+def user_decoder(dct):
+    if 'date_now' in dct:
+        dct['date_now'] = datetime.fromisoformat(dct['date_now'])
+    return dct
+
+
+json_string = '''
+{
+    "city": "London",
+    "date_now": "2023-05-15T14:30:00"
+}
+'''
+data = json.loads(json_string, object_hook=user_decoder)
+print(data)
+"""
 
 
