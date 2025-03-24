@@ -338,4 +338,42 @@ data = json.loads(json_string, object_hook=user_decoder)
 print(data)
 """
 
+# Работа с сетью
 
+"""
+import requests
+
+url = "https://jsonplaceholder.typicode.com/users"
+
+params = {
+    "username": "Samantha"
+}
+
+
+response = requests.get(url, params=params)
+
+if response.status_code == 200:
+    print(response.json())
+else:
+    print(f"Ошибка: {response.status_code}")
+"""
+
+"""
+import requests
+
+url = "https://httpbin.org/post"
+
+
+form_data = {
+    "username": "alice123",
+    "password": "qwerty",
+    "email": "alice@example.com"
+}
+
+response = requests.post(url, json=form_data)
+
+print("Статус код:", response.status_code)
+print("Ответ сервера:", response.json())
+"""
+
+#
