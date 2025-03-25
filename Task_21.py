@@ -458,5 +458,57 @@ finally:
     conn.close()
 """
 
+# Используем Proxy
+
+"""
+import requests
+
+url = 'http://vk.com'
+proxies = {'http': 'http://79.117.21.113:8080', 'https': 'http://79.117.21.113:4321'}
+
+response = requests.get(url, proxies=proxies)
+
+try:
+    response = requests.get(url, proxies=proxies)
+    print(response.status_code)
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"An error occurred: {e}")
+"""
+
+"""
+import http.client
+
+proxy_host = '68.183.122.221'
+proxy_port = 32890
+dest_url = 'rutracker.org'
+dest_path = '/get'
+
+# Создание соединения с прокси-сервером
+conn = http.client.HTTPConnection(proxy_host, proxy_port)
+
+headers = {
+    "Host": dest_url,
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+}
+
+# Формирование и отправка запроса
+conn.set_tunnel(dest_url)
+conn.request('GET', dest_path, headers=headers)
+
+# Получение ответа
+response = conn.getresponse()
+print(response.status, response.reason)
+print(response.read().decode('utf-8'))
+
+# Закрытие соединения
+conn.close()
+"""
+
+
+
+
+
+
 
 
