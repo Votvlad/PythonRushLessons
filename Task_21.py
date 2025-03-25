@@ -505,6 +505,66 @@ print(response.read().decode('utf-8'))
 conn.close()
 """
 
+# Модуль socket
+
+"""
+import socket  # Импортируем модуль для работы с сокетами
+
+server_socket = socket.socket(
+    socket.AF_INET,      # Используем IPv4
+    socket.SOCK_STREAM   # TCP-сокет (для UDP — SOCK_DGRAM)
+)
+
+host = '127.0.0.1'  # Локальный адрес (localhost)
+port = 65432
+
+
+# Привязываем сокет к адресу и порту
+server_socket.bind((host, port))
+
+# Начинаем слушать входящие подключения
+server_socket.listen(1)  # Аргумент — максимальное количество подключений в очереди
+print(f"Сервер запущен на {host}:{port}. Ожидание подключений...")
+
+# Принимаем подключение
+client_socket, client_address = server_socket.accept()  # Блокируется, пока не подключится клиент
+print(f"Подключился клиент: {client_address}")
+
+# Работаем с клиентом
+with client_socket:  # Автоматически закроет сокет при выходе из блока
+    while True:
+        # Получаем данные от клиента (макс. 1024 байта)
+        data = client_socket.recv(1024)
+        if not data:  # Если данные пустые — клиент отключился
+            break
+        print(f"Получено от клиента: {data.decode('utf-8')}")
+
+        # Отправляем ответ
+        client_socket.sendall(b"Hello, client!")
+
+# Закрываем серверный сокет (выполнится после выхода из with)
+server_socket.close()
+"""
+
+"""
+import socket
+
+# Создание сокета
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Установка соединения с сервером
+client_socket.connect(('127.0.0.1', 65432))
+
+# Отправка данных на сервер
+client_socket.sendall(b'Hello, server!')
+
+# Получение данных от сервера
+data = client_socket.recv(1024)
+print(f"Получено от сервера: {data.decode('utf-8')}")
+
+# Закрытие сокета
+client_socket.close()
+"""
 
 
 
