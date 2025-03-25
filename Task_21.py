@@ -401,4 +401,62 @@ else:
     print("Success!")
 """
 
+# Используем HttpClient
+
+"""
+import http.client
+
+try:
+    # Создание подключения
+    conn = http.client.HTTPSConnection("vk.com")
+
+    # Отправка GET-запроса
+    conn.request("GET", "/friends/")
+
+    # Получение ответа
+    response = conn.getresponse()
+    print(response.status, response.reason)
+
+    # Чтение и декодирование данных ответа
+    data = response.read().decode('utf-8')
+    print(data)
+
+except http.client.HTTPException as e:
+    print("HTTP error occurred:", e)
+except Exception as e:
+    print("An error occurred:", e)
+finally:
+    # Закрытие подключения
+    conn.close()
+"""
+
+
+"""
+import http.client
+
+headers = {
+    'Content-Type': 'application/json'
+}
+
+try:
+    conn = http.client.HTTPSConnection("vk.com")
+    conn.request("POST", "/friends", headers=headers)
+
+    # Получение ответа
+    response = conn.getresponse()
+    print(response.status, response.reason)
+
+    # Чтение и декодирование данных ответа
+    data = response.read().decode('utf-8')
+    print(data)
+
+except http.client.HTTPException as e:
+    print("HTTP error occurred:", e)
+except Exception as e:
+    print("An error occurred:", e)
+finally:
+    conn.close()
+"""
+
+
 
