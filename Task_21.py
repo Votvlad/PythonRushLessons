@@ -376,4 +376,29 @@ print("Статус код:", response.status_code)
 print("Ответ сервера:", response.json())
 """
 
-#
+# Работа с сетью на практике
+
+"""
+import requests
+
+response = requests.get('https://vk.com')
+print(response.status_code)
+print(response.headers)
+print(response.text)
+"""
+
+"""
+import requests
+
+try:
+    response = requests.get('https://vkont.com')
+    response.raise_for_status()  # Генерирует исключение для статус-кодов 4xx и 5xx
+except requests.exceptions.HTTPError as err:
+    print(f"HTTP error occurred: {err}")
+except Exception as err:
+    print(f"Other error occurred: {err}")
+else:
+    print("Success!")
+"""
+
+
