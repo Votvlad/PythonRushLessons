@@ -566,7 +566,106 @@ print(f"Получено от сервера: {data.decode('utf-8')}")
 client_socket.close()
 """
 
+# Работа с почтой
 
+"""
+import poplib
+
+username = 'vlad.ainur@gmail.com'
+password = 'zosy pzqm hlun tgxc'
+
+# Подключение к почтовому серверу Gmail
+pop3_server = 'pop.gmail.com'
+mailbox = poplib.POP3_SSL(pop3_server, 995)
+
+# Вход в почтовый ящик
+mailbox.user(username)
+mailbox.pass_(password)  # Используем pass_ для предотвращения конфликта с ключевым словом pass в Python
+
+# Получение информации о почтовом ящике
+num_messages = len(mailbox.list()[1])
+print(f"Количество писем: {num_messages}")
+
+# Пример: Чтение последнего письма
+if num_messages > 0:
+    response, lines, octets = mailbox.retr(num_messages)
+    message = '\n'.join(line.decode('utf-8') for line in lines)
+    print("Содержимое последнего письма:")
+    print(message)
+
+# Закрытие соединения
+mailbox.quit()
+"""
+
+"""
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import ssl
+
+
+def send_email():
+    # Конфигурация SMTP-сервера
+    smtp_server = "smtp.gmail.com"  # Например, для Gmail
+    smtp_port = 587  # Для STARTTLS (обычно 587 или 465 для SSL)
+
+    # Учетные данные (лучше использовать переменные окружения!)
+    sender_email = "vlad.ainur@gmail.com"
+    password = "zosy pzqm hlun tgxc"  # Для Gmail нужен пароль приложения
+    recipient_email = "vlad.ainur@gmail.com"
+
+    # Создаем письмо
+    message = MIMEMultipart()
+    message["From"] = sender_email
+    message["To"] = recipient_email
+    message["Subject"] = "Тестовое письмо из Python"
+
+    body = \"""
+    Привет!
+
+    Это тестовое письмо, отправленное через Python-скрипт.
+
+    С уважением,
+    Ваш SMTP-клиент
+    \"""
+    message.attach(MIMEText(body, "plain"))
+
+    try:
+        # Создаем безопасное соединение
+        context = ssl.create_default_context()
+
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.ehlo()  # Идентифицируемся с сервером
+            server.starttls(context=context)  # Включаем шифрование
+            server.ehlo()
+
+            # Аутентификация
+            try:
+                server.login(sender_email, password)
+                print("Аутентификация успешна!")
+            except smtplib.SMTPAuthenticationError:
+                print("Ошибка аутентификации: неверный логин или пароль")
+                return
+            except Exception as auth_error:
+                print(f"Ошибка при аутентификации: {auth_error}")
+                return
+
+            # Отправка письма
+            try:
+                server.sendmail(sender_email, recipient_email, message.as_string())
+                print("Письмо успешно отправлено!")
+            except Exception as send_error:
+                print(f"Ошибка при отправке: {send_error}")
+
+    except smtplib.SMTPConnectError:
+        print("Ошибка подключения к SMTP-серверу")
+    except Exception as e:
+        print(f"Неизвестная ошибка: {e}")
+
+
+if __name__ == "__main__":
+    send_email()
+"""
 
 
 
